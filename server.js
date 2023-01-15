@@ -7,6 +7,7 @@ const express = require('express');
 const PORT = process.env.PORT;
 const connectDB = require('./config/db');
 const favoriteWordsRoutes = require('./routes/favoriteWords');
+const userRoutes = require('./routes/user');
 
 const app = express();
 
@@ -20,5 +21,6 @@ app.use(express.json());
 
 // routes
 app.use('/api/favoriteWords', favoriteWordsRoutes);
+app.use('/api/user', userRoutes)
 
 app.listen(PORT, console.log(`server running at port ${PORT}`));
