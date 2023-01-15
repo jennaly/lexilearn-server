@@ -2,7 +2,6 @@ require('dotenv').config({ path: './config/config.env' });
 
 const cors = require('cors');
 const { urlencoded } = require('express');
-const bodyParser = require('body-parser')
 const express = require('express');
 
 const PORT = process.env.PORT;
