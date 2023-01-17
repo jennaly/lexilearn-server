@@ -12,7 +12,12 @@ const favoriteWordSchema = new mongoose.Schema({
   difficulty: {
     type: Number,
     required: false
-  }
-}, { timestamps: true })
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'User'
+  },
+})
 
 module.exports = mongoose.model('favoriteWord', favoriteWordSchema);
