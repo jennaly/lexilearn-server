@@ -6,7 +6,11 @@ const {
     deleteFavoriteWord
 } = require('../controllers/favoriteWordController');
 
+const requireAuth = require('../middleware/requireAuth');
+
 const router = express.Router();
+
+router.use(requireAuth);
 
 // GET all favorite words
 router.get('/', getFavoriteWords);
