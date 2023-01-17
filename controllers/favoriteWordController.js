@@ -3,21 +3,19 @@ const favoriteWord = require('../models/favoriteWordModel');
 // get all favorite words
 const getFavoriteWords = async (req, res) => {
     try {
-        const favoriteWords = await favoriteWord.find({});
+        const favoriteWords = await favoriteWord.find({ user: req.user._id });
 
         res.status(200).json(favoriteWords);
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
-
- 
 }
 
 // add a favorite word to db
 const createFavoriteWord = async (req, res) => {
     const { term, definitions, difficulty } = req.body;
     try {
-        const word = await favoriteWord.create({ term, definitions, difficulty });
+        const word = await favoriteWord.create({ term, definitions, difficulty, user: req.user._id, });
         res.status(200).json(word);
     
     } catch (error) {
