@@ -6,6 +6,7 @@ const express = require('express');
 
 const PORT = process.env.PORT;
 const connectDB = require('./config/db');
+const dictionaryRoutes = require('./routes/dictionary');
 const favoriteWordsRoutes = require('./routes/favoriteWords');
 const userRoutes = require('./routes/user');
 
@@ -20,6 +21,7 @@ app.use(urlencoded({ extended: true }));
 app.use(express.json());
 
 // routes
+app.use('/api/dictionary', dictionaryRoutes)
 app.use('/api/favoriteWords', favoriteWordsRoutes);
 app.use('/api/user', userRoutes)
 
